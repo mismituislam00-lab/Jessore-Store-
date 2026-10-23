@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jessore Store | অনলাইন শপ</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #222;
+    }
+    header {
+      background: #087443;
+      color: white;
+      text-align: center;
+      padding: 24px 12px;
+    }
+    header h1 { margin: 0 0 8px; }
+    header p { margin: 0; }
+    nav {
+      background: #065c35;
+      padding: 12px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+    }
+    .hero {
+      text-align: center;
+      padding: 30px 15px;
+      background: #e0f5e9;
+    }
+    .hero h2 { color: #087443; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 15px;
+      padding: 18px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .product {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 9px #00000012;
+    }
+    .product .emoji { font-size: 55px; }
+    .product h3 { margin: 10px 0; }
+    .price { color: #087443; font-weight: bold; }
+    button {
+      background: #087443;
+      color: white;
+      border: 0;
+      border-radius: 7px;
+      padding: 11px 14px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 15px;
+    }
+    button:hover { background: #065c35; }
+    .order {
+      background: white;
+      max-width: 500px;
+      margin: 10px auto 30px;
+      padding: 22px;
+      border-radius: 12px;
+    }
+    .order input, .order textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 7px 0 14px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 16px;
+    }
+    footer {
+      background: #16382a;
+      color: white;
+      text-align: center;
+      padding: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🛍️ Jessore Store</h1>
+  <p>আপনার পছন্দের পণ্য, এখন অনলাইনে!</p>
+</header>
+
+<nav>
+  <a href="#home">হোম</a>
+  <a href="#products">পণ্য</a>
+  <a href="#order">অর্ডার</a>
+</nav>
+
+<section class="hero" id="home">
+  <h2>স্বাগতম Jessore Store-এ!</h2>
+  <p>পছন্দের পণ্য বেছে নিন এবং WhatsApp-এ অর্ডার করুন।</p>
+</section>
+
+<section id="products">
+  <h2 style="text-align:center">আমাদের পণ্য</h2>
+  <div class="products" id="product-list"></div>
+</section>
+
+<section class="order" id="order">
+  <h2>📦 অর্ডার করুন</h2>
+  <form id="order-form">
+    <label>আপনার নাম</label>
+    <input id="customer" required placeholder="আপনার নাম লিখুন">
+
+    <label>মোবাইল নম্বর</label>
+    <input id="phone" required inputmode="tel"
+      placeholder="আপনার ফোন নম্বর">
+
+    <label>পণ্যের নাম</label>
+    <input id="item" required placeholder="পণ্যের নাম লিখুন">
+
+    <label>পরিমাণ</label>
+    <input id="qty" type="number" min="1" value="1" required>
+
+    <label>ঠিকানা</label>
+    <textarea id="address" required
+      placeholder="ডেলিভারির ঠিকানা লিখুন"></textarea>
+
+    <button type="submit">WhatsApp-এ অর্ডার পাঠান</button>
+  </form>
+</section>
+
+<footer>
+  <p>© Jessore Store</p>
+  <p>আপনার কেনাকাটার বিশ্বস্ত ঠিকানা ❤️</p>
+</footer>
+
+<script>
+  // এখানে আপনার বাংলাদেশের WhatsApp নম্বর বসাবেন।
+  // উদাহরণ: 8801712345678 (শুধু উদাহরণ)
+  const WHATSAPP_NUMBER = "8801739594011";
+
+  const products = [
+    { name: "টি-শার্ট", price: 350, emoji: "👕" },
+    { name: "হাতঘড়ি", price: 550, emoji: "⌚" },
+    { name: "ব্যাগ", price: 650, emoji: "🎒" },
+    { name: "হেডফোন", price: 450, emoji: "🎧" }
+  ];
+
+  const list = document.getElementById("product-list");
+
+  products.forEach(product => {
+    const card = document.createElement("div");
+    card.className = "product";
+    card.innerHTML = `
+      <div class="emoji">${product.emoji}</div>
+      <h3>${product.name}</h3>
+      <p class="price">৳${product.price}</p>
+      <button type="button">অর্ডার করুন</button>
+    `;
+    card.querySelector("button").addEventListener("click", () => {
+      document.getElementById("item").value = product.name;
+      document.getElementById("order").scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+    list.appendChild(card);
+  });
+
+  document.getElementById("order-form").addEventListener("submit", event => {
+    event.preventDefault();
+
+    if (WHATSAPP_NUMBER.includes("X")) {
+      alert("প্রথমে কোডে আপনার WhatsApp নম্বর বসাতে হবে।");
+      return;
+    }
+
+    const message =
+      "Jessore Store অর্ডার%0A" +
+      "নাম: " + encodeURIComponent(document.getElementById("customer").value) + "%0A" +
+      "ফোন: " + encodeURIComponent(document.getElementById("phone").value) + "%0A" +
+      "পণ্য: " + encodeURIComponent(document.getElementById("item").value) + "%0A" +
+      "পরিমাণ: " + encodeURIComponent(document.getElementById("qty").value) + "%0A" +
+      "ঠিকানা: " + encodeURIComponent(document.getElementById("address").value);
+
+    window.open(
+      "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message,
+      "_blank"
+    );
+  });
+</script>
+
+</body>
+</html>

@@ -2,199 +2,244 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jessore Store | অনলাইন শপ</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      color: #222;
-    }
-    header {
-      background: #087443;
-      color: white;
-      text-align: center;
-      padding: 24px 12px;
-    }
-    header h1 { margin: 0 0 8px; }
-    header p { margin: 0; }
-    nav {
-      background: #065c35;
-      padding: 12px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 12px;
-      text-decoration: none;
-    }
-    .hero {
-      text-align: center;
-      padding: 30px 15px;
-      background: #e0f5e9;
-    }
-    .hero h2 { color: #087443; }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-      gap: 15px;
-      padding: 18px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .product {
-      background: white;
-      border-radius: 12px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 9px #00000012;
-    }
-    .product .emoji { font-size: 55px; }
-    .product h3 { margin: 10px 0; }
-    .price { color: #087443; font-weight: bold; }
-    button {
-      background: #087443;
-      color: white;
-      border: 0;
-      border-radius: 7px;
-      padding: 11px 14px;
-      cursor: pointer;
-      width: 100%;
-      font-size: 15px;
-    }
-    button:hover { background: #065c35; }
-    .order {
-      background: white;
-      max-width: 500px;
-      margin: 10px auto 30px;
-      padding: 22px;
-      border-radius: 12px;
-    }
-    .order input, .order textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 7px 0 14px;
-      border: 1px solid #ccc;
-      border-radius: 7px;
-      font-size: 16px;
-    }
-    footer {
-      background: #16382a;
-      color: white;
-      text-align: center;
-      padding: 18px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jessore Store | অনলাইন শপ</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#222}
+header{background:#087443;color:white;text-align:center;padding:22px 12px}
+header h1{margin:0 0 8px;font-size:30px}
+nav{background:#065c35;padding:12px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 10px}
+.hero{text-align:center;padding:24px 14px;background:#def5e8}
+.hero h2{color:#087443}
+.search{display:block;width:92%;max-width:600px;margin:20px auto;padding:13px;border:1px solid #ccc;border-radius:9px;font-size:16px}
+.categories{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:0 10px}
+.categories button{width:auto;background:#e1eee7;color:#075d37}
+.categories button.active{background:#087443;color:white}
+h2.section{text-align:center;margin:25px 0 12px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:12px;max-width:1000px;margin:auto}
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px #0001}
+.card img{width:100%;height:165px;object-fit:contain;background:#fff}
+.info{padding:12px}
+.info h3{margin:0 0 8px;font-size:18px}
+.price{color:#087443;font-weight:bold;font-size:19px;margin:8px 0}
+.desc{font-size:14px;line-height:1.6;color:#555}
+button{border:0;border-radius:7px;padding:11px;background:#087443;color:white;font-size:15px;cursor:pointer}
+.card button{width:100%}
+.secondary{background:#e6f1ea;color:#075d37;margin-bottom:8px}
+.panel{background:white;border-radius:12px;padding:18px;margin:18px auto;max-width:600px;width:94%}
+input,textarea,select{width:100%;padding:12px;margin:6px 0 14px;border:1px solid #ccc;border-radius:7px;font-size:16px}
+label{font-weight:bold;font-size:14px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.qty{width:76px;margin:0}
+footer{background:#16382a;color:white;text-align:center;padding:20px;margin-top:25px}
+small{color:#666}
+@media(min-width:650px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.card img{height:210px}}
+</style>
 </head>
 <body>
 
 <header>
-  <h1>🛍️ Jessore Store</h1>
-  <p>আপনার পছন্দের পণ্য, এখন অনলাইনে!</p>
+<h1>🛍️ Jessore Store</h1>
+<p>আপনার পছন্দের পণ্য, এখন অনলাইনে!</p>
 </header>
 
 <nav>
-  <a href="#home">হোম</a>
-  <a href="#products">পণ্য</a>
-  <a href="#order">অর্ডার</a>
+<a href="#home">হোম</a>
+<a href="#products">পণ্য</a>
+<a href="#cart">কার্ট</a>
+<a href="#order">অর্ডার</a>
 </nav>
 
 <section class="hero" id="home">
-  <h2>স্বাগতম Jessore Store-এ!</h2>
-  <p>পছন্দের পণ্য বেছে নিন এবং WhatsApp-এ অর্ডার করুন।</p>
+<h2>স্বাগতম Jessore Store-এ!</h2>
+<p>পছন্দের পণ্য খুঁজুন, বিস্তারিত দেখুন এবং WhatsApp-এ অর্ডার করুন।</p>
 </section>
 
-<section id="products">
-  <h2 style="text-align:center">আমাদের পণ্য</h2>
-  <div class="products" id="product-list"></div>
+<input class="search" id="search" placeholder="🔍 পণ্যের নাম লিখে খুঁজুন...">
+
+<div class="categories" id="categories"></div>
+
+<h2 class="section" id="products">আমাদের পণ্য</h2>
+<div class="products" id="product-list"></div>
+
+<section class="panel" id="details" hidden>
+<h2>পণ্যের বিস্তারিত</h2>
+<div id="detail-content"></div>
 </section>
 
-<section class="order" id="order">
-  <h2>📦 অর্ডার করুন</h2>
-  <form id="order-form">
-    <label>আপনার নাম</label>
-    <input id="customer" required placeholder="আপনার নাম লিখুন">
+<section class="panel" id="cart">
+<h2>🛒 আপনার কার্ট</h2>
+<div id="cart-list">এখনো কোনো পণ্য যোগ করেননি।</div>
+<p id="total"><b>মোট: ৳0</b></p>
+<button onclick="goOrder()">অর্ডার করতে এগিয়ে যান</button>
+</section>
 
-    <label>মোবাইল নম্বর</label>
-    <input id="phone" required inputmode="tel"
-      placeholder="আপনার ফোন নম্বর">
+<section class="panel" id="order">
+<h2>📦 অর্ডার ফর্ম</h2>
+<p>আপনার তথ্য পূরণ করে WhatsApp-এ অর্ডার পাঠান।</p>
+<form id="order-form">
+<label for="customer">আপনার নাম</label>
+<input id="customer" required placeholder="সম্পূর্ণ নাম">
 
-    <label>পণ্যের নাম</label>
-    <input id="item" required placeholder="পণ্যের নাম লিখুন">
+<label for="phone">মোবাইল নম্বর</label>
+<input id="phone" required inputmode="tel" placeholder="আপনার ফোন নম্বর">
 
-    <label>পরিমাণ</label>
-    <input id="qty" type="number" min="1" value="1" required>
+<label for="address">সম্পূর্ণ ডেলিভারি ঠিকানা</label>
+<textarea id="address" required placeholder="জেলা, উপজেলা, এলাকা ও বাড়ির ঠিকানা"></textarea>
 
-    <label>ঠিকানা</label>
-    <textarea id="address" required
-      placeholder="ডেলিভারির ঠিকানা লিখুন"></textarea>
+<label for="note">অতিরিক্ত নির্দেশনা (ঐচ্ছিক)</label>
+<textarea id="note" placeholder="রং, সাইজ বা অন্যান্য পছন্দ"></textarea>
 
-    <button type="submit">WhatsApp-এ অর্ডার পাঠান</button>
-  </form>
+<button type="submit" style="width:100%">WhatsApp-এ অর্ডার পাঠান</button>
+</form>
 </section>
 
 <footer>
-  <p>© Jessore Store</p>
-  <p>আপনার কেনাকাটার বিশ্বস্ত ঠিকানা ❤️</p>
+<p><b>Jessore Store</b></p>
+<p>আপনার কেনাকাটার বিশ্বস্ত ঠিকানা ❤️</p>
 </footer>
 
 <script>
-  // এখানে আপনার বাংলাদেশের WhatsApp নম্বর বসাবেন।
-  // উদাহরণ: 8801712345678 (শুধু উদাহরণ)
-  const WHATSAPP_NUMBER = "8801739594011";
+// আপনার WhatsApp নম্বর বসান: দেশের কোডসহ, + বা স্পেস ছাড়া
+const WHATSAPP_NUMBER = "8801739594011";
 
-  const products = [
-    { name: "টি-শার্ট", price: 350, emoji: "👕" },
-    { name: "হাতঘড়ি", price: 550, emoji: "⌚" },
-    { name: "ব্যাগ", price: 650, emoji: "🎒" },
-    { name: "হেডফোন", price: 450, emoji: "🎧" }
-  ];
+// এখানে নিজের পণ্যের তথ্য পরিবর্তন করুন।
+// ছবির ফাইল GitHub-এর images ফোল্ডারে আপলোড করতে হবে।
+const products = [
+ {id:1,name:"টি-শার্ট",price:350,category:"ফ্যাশন",
+  image:"images/tshirt.jpg",
+  desc:"আরামদায়ক টি-শার্ট। নিজের পণ্যের আসল বিবরণ লিখুন।",
+  stock:"স্টক নিশ্চিত করে নিন",sizes:"M, L, XL"},
+ {id:2,name:"হাতঘড়ি",price:550,category:"অ্যাক্সেসরিজ",
+  image:"images/watch.jpg",
+  desc:"স্টাইলিশ হাতঘড়ি। আসল পণ্যের বৈশিষ্ট্য যোগ করুন।",
+  stock:"স্টক নিশ্চিত করে নিন",sizes:"এক সাইজ"},
+ {id:3,name:"ব্যাগ",price:650,category:"অ্যাক্সেসরিজ",
+  image:"images/bag.jpg",
+  desc:"দৈনন্দিন ব্যবহারের ব্যাগ। উপাদান ও মাপ লিখুন।",
+  stock:"স্টক নিশ্চিত করে নিন",sizes:"পণ্যের মাপ লিখুন"},
+ {id:4,name:"হেডফোন",price:450,category:"ইলেকট্রনিকস",
+  image:"images/headphones.jpg",
+  desc:"হেডফোন। কানেকশন ও ব্যাটারির তথ্য থাকলে লিখুন।",
+  stock:"স্টক নিশ্চিত করে নিন",sizes:"মডেল উল্লেখ করুন"}
+];
 
-  const list = document.getElementById("product-list");
+let cart = [];
+let activeCategory = "সব";
 
-  products.forEach(product => {
-    const card = document.createElement("div");
-    card.className = "product";
-    card.innerHTML = `
-      <div class="emoji">${product.emoji}</div>
-      <h3>${product.name}</h3>
-      <p class="price">৳${product.price}</p>
-      <button type="button">অর্ডার করুন</button>
-    `;
-    card.querySelector("button").addEventListener("click", () => {
-      document.getElementById("item").value = product.name;
-      document.getElementById("order").scrollIntoView({
-        behavior: "smooth"
-      });
-    });
-    list.appendChild(card);
-  });
+const money = n => "৳" + Number(n).toLocaleString("en-US");
 
-  document.getElementById("order-form").addEventListener("submit", event => {
-    event.preventDefault();
+function renderCategories(){
+ const cats=["সব",...new Set(products.map(p=>p.category))];
+ document.getElementById("categories").innerHTML=cats.map(c=>
+ `<button class="${c===activeCategory?'active':''}"
+ onclick="setCategory(${JSON.stringify(c)})">${c}</button>`
+ ).join("");
+}
+function setCategory(c){activeCategory=c;renderCategories();renderProducts();}
 
-    if (WHATSAPP_NUMBER.includes("X")) {
-      alert("প্রথমে কোডে আপনার WhatsApp নম্বর বসাতে হবে।");
-      return;
-    }
+function renderProducts(){
+ const q=document.getElementById("search").value.trim().toLowerCase();
+ const found=products.filter(p=>
+ (activeCategory==="সব"||p.category===activeCategory)&&
+ (p.name+" "+p.desc+" "+p.category).toLowerCase().includes(q)
+ );
+ document.getElementById("product-list").innerHTML=found.length?found.map(p=>`
+ <article class="card">
+ <img src="${p.image}" alt="${p.name}" loading="lazy"
+ onerror="this.style.display='none'">
+ <div class="info">
+ <h3>${p.name}</h3>
+ <div class="price">${money(p.price)}</div>
+ <p class="desc">${p.desc}</p>
+ <button class="secondary" onclick="showDetails(${p.id})">বিস্তারিত দেখুন</button>
+ <button onclick="addCart(${p.id})">কার্টে যোগ করুন</button>
+ </div></article>`).join(""):"<p>কোনো পণ্য পাওয়া যায়নি।</p>";
+}
 
-    const message =
-      "Jessore Store অর্ডার%0A" +
-      "নাম: " + encodeURIComponent(document.getElementById("customer").value) + "%0A" +
-      "ফোন: " + encodeURIComponent(document.getElementById("phone").value) + "%0A" +
-      "পণ্য: " + encodeURIComponent(document.getElementById("item").value) + "%0A" +
-      "পরিমাণ: " + encodeURIComponent(document.getElementById("qty").value) + "%0A" +
-      "ঠিকানা: " + encodeURIComponent(document.getElementById("address").value);
+function showDetails(id){
+ const p=products.find(x=>x.id===id);
+ document.getElementById("details").hidden=false;
+ document.getElementById("detail-content").innerHTML=`
+ <h3>${p.name}</h3>
+ <p class="price">${money(p.price)}</p>
+ <p>${p.desc}</p>
+ <p><b>ক্যাটাগরি:</b> ${p.category}</p>
+ <p><b>সাইজ/মডেল:</b> ${p.sizes}</p>
+ <p><b>স্টক:</b> ${p.stock}</p>
+ <button onclick="addCart(${p.id})">কার্টে যোগ করুন</button>`;
+ document.getElementById("details").scrollIntoView({behavior:"smooth"});
+}
 
-    window.open(
-      "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message,
-      "_blank"
-    );
-  });
+function addCart(id){
+ const item=cart.find(x=>x.id===id);
+ if(item)item.qty++;
+ else cart.push({id,qty:1});
+ renderCart();
+ document.getElementById("cart").scrollIntoView({behavior:"smooth"});
+}
+function changeQty(id,value){
+ const item=cart.find(x=>x.id===id);
+ if(!item)return;
+ item.qty=Math.max(1,Number(value)||1);
+ renderCart();
+}
+function removeItem(id){cart=cart.filter(x=>x.id!==id);renderCart();}
+
+function renderCart(){
+ const el=document.getElementById("cart-list");
+ if(!cart.length)el.textContent="এখনো কোনো পণ্য যোগ করেননি।";
+ else el.innerHTML=cart.map(i=>{
+ const p=products.find(x=>x.id===i.id);
+ return `<div style="border-bottom:1px solid #ddd;padding:12px 0">
+ <b>${p.name}</b> — ${money(p.price)}<br><br>
+ <div class="row"><label>পরিমাণ</label>
+ <input class="qty" type="number" min="1" value="${i.qty}"
+ onchange="changeQty(${i.id},this.value)">
+ <button onclick="removeItem(${i.id})">বাদ দিন</button></div>
+ </div>`;
+ }).join("");
+ const sum=cart.reduce((s,i)=>s+products.find(p=>p.id===i.id).price*i.qty,0);
+ document.getElementById("total").innerHTML="<b>মোট: "+money(sum)+"</b>";
+}
+function goOrder(){
+ if(!cart.length){alert("আগে কার্টে পণ্য যোগ করুন।");return;}
+ document.getElementById("order").scrollIntoView({behavior:"smooth"});
+}
+
+document.getElementById("search").addEventListener("input",renderProducts);
+
+document.getElementById("order-form").addEventListener("submit",function(e){
+ e.preventDefault();
+ if(!cart.length){alert("আগে কার্টে পণ্য যোগ করুন।");return;}
+ if(WHATSAPP_NUMBER.includes("X")){
+ alert("কোডে আপনার আসল WhatsApp নম্বর বসান।");return;
+ }
+ const lines=cart.map(i=>{
+ const p=products.find(x=>x.id===i.id);
+ return `${p.name} × ${i.qty} = ${money(p.price*i.qty)}`;
+ }).join("\n");
+ const total=cart.reduce((s,i)=>s+products.find(p=>p.id===i.id).price*i.qty,0);
+ const message=[
+ "Jessore Store - নতুন অর্ডার",
+ "নাম: "+document.getElementById("customer").value,
+ "ফোন: "+document.getElementById("phone").value,
+ "ঠিকানা: "+document.getElementById("address").value,
+ "পণ্য:\n"+lines,
+ "মোট পণ্যমূল্য: "+money(total),
+ "অতিরিক্ত নির্দেশনা: "+document.getElementById("note").value,
+ "দয়া করে ডেলিভারি চার্জ ও প্রাপ্যতা নিশ্চিত করুন।"
+ ].join("\n");
+ const url="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message);
+ window.open(url,"_blank");
+});
+
+renderCategories();
+renderProducts();
+renderCart();
 </script>
-
 </body>
 </html>
